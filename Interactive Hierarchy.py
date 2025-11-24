@@ -38,6 +38,10 @@ def load_data(file):
 
     return df_h, df_d
 
+if uploaded_file is None:
+    st.warning("Please upload the Hierarchy Backend file first.")
+    st.stop()
+
 df_h, df_d = load_data(uploaded_file)
 
 # 3) BUILD PATHS (SKIP NaN)
@@ -224,4 +228,5 @@ if focus_id:
 
     if dep_labels:
         st.write("### Dependent nodes highlighted in red:")
+
         st.write(", ".join(dep_labels))
